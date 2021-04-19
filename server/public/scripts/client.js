@@ -39,7 +39,7 @@ function render(response) {
     $('#outputDiv').empty();
     // loop thru the jokes array and append each joke to the DOM
     for(let index of response){
-        $('#history').append(`
+        $('#outputDiv').append(`
         <li>${index.whoseJoke} ${index.jokeQuestion} ${index.puncLine}</li>
         `)
     }
