@@ -47,10 +47,14 @@ app.get('/jokes', (req,res) =>{
   res.send(jokes);
 })
 
+// receives new joke from client, add to server array
 app.post('/jokes', (req, res) => {
+  // grab information send and assign it to newJoke
   let newJoke = req.body;
+  // confirming..
   console.log('new joke!', newJoke);
-
+  // add new joke to server Jokes array
   jokes.push(newJoke);
+  // confirm by sendin status of 201 - All good!
   res.sendStatus(201);
 })

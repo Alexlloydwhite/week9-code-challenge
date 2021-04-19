@@ -4,7 +4,9 @@ $( document ).ready( onReady );
 
 function onReady() {
     console.log('DOM ready');
+    // on click of add joke button -> send joke to server
     $('#addJokeButton').on('click', addJoke);
+    // on page load -> display jokes from server
     getJokes();
 }
 
