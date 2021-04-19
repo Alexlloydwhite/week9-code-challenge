@@ -18,6 +18,15 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "express": "^4.14.0"
-  }
+    "express": "^4.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexlloydwhite/week9-code-challenge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Alexlloydwhite/week9-code-challenge/issues"
+  },
+  "homepage": "https://github.com/Alexlloydwhite/week9-code-challenge#readme",
+  "devDependencies": {}
 }
