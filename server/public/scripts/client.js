@@ -4,16 +4,36 @@ $( document ).ready( onReady );
 
 function onReady() {
     console.log('DOM ready');
-    // $('#addJokeButton').on('click', addJoke);
+    $('#addJokeButton').on('click', addJoke);
     getJokes();
 }
 
-// function addJoke(){
-//     let whoseJoke = $('#whoseJokeIn').val();
-//     let question = $('#questionIn').val();
-//     let punchline = $('#punchlineIn').val();
-
-// }
+function addJoke(){
+    // object joke captures inputs of new joke
+    let newJoke = {
+        whoseJoke: $('#whoseJokeIn').val(),
+        question: $('#questionIn').val(),
+        punchline: $('#punchlineIn').val(),
+    }
+ 
+    // ajax sends object to server to add to jokes array
+    $.ajax({
+        method: 'POST',
+        url: '/jokes',
+        data: newJoke,
+    })
+        // After posting information to server, console log on client side to confirm
+        .then(function(response){
+            console.log('adding new joke', newJoke);
+            getJokes();
+            clearInputs();
+        })
+        // if post fails, alert user.
+        .catch(function( error ) {
+            console.log('error from server:', error);
+            alert('Sorry, could not complete task. Try again L8R!');
+        })
+}
 
 // gets jokes array from server to use on the DOM
 function getJokes(){
@@ -40,7 +60,13 @@ function render(response) {
     // loop thru the jokes array and append each joke to the DOM
     for(let index of response){
         $('#outputDiv').append(`
-        <li>${index.whoseJoke} ${index.jokeQuestion} ${index.puncLine}</li>
+        <li>${index.whoseJoke} ${index.jokeQuestion} ${index.punchLine}</li>
         `)
     }
+}
+
+function clearInputs(){
+    $('#whoseJokeIn').val('');
+    $('#questionIn').val('');
+    $('#punchlineIn').val('');
 }
