@@ -46,3 +46,11 @@ app.get('/jokes', (req,res) =>{
   console.log('request for jokes:', jokes);
   res.send(jokes);
 })
+
+app.post('/jokes', (req, res) => {
+  let newJoke = req.body;
+  console.log('new joke!', newJoke);
+
+  jokes.push(newJoke);
+  res.sendStatus(201);
+})

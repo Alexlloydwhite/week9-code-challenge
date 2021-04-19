@@ -12,8 +12,8 @@ function addJoke(){
     // object joke captures inputs of new joke
     let newJoke = {
         whoseJoke: $('#whoseJokeIn').val(),
-        question: $('#questionIn').val(),
-        punchline: $('#punchlineIn').val(),
+        jokeQuestion: $('#questionIn').val(),
+        punchLine: $('#punchlineIn').val(),
     }
  
     // ajax sends object to server to add to jokes array
